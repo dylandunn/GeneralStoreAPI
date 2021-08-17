@@ -7,13 +7,13 @@ namespace GeneralStoreAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddedCustomer : IMigrationMetadata
+    public sealed partial class InitMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedCustomer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108102242138_AddedCustomer"; }
+            get { return "202108112318587_InitMigration"; }
         }
         
         string IMigrationMetadata.Source

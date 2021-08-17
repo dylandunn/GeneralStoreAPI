@@ -7,13 +7,13 @@ namespace GeneralStoreAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddedProduct : IMigrationMetadata
+    public sealed partial class AddedInventoryToProduct : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedProduct));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedInventoryToProduct));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108110039549_AddedProduct"; }
+            get { return "202108122310164_AddedInventoryToProduct"; }
         }
         
         string IMigrationMetadata.Source

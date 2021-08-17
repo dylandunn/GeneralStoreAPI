@@ -15,8 +15,6 @@ namespace GeneralStoreAPI.Models.CustomerModels
         [Required]
         public string LastName { get; set; }
         [Required]
-        public string FullName { get; }
+        public string FullName { get { var fullName = FirstName + LastName; return fullName; } }
     }
-    
-   
 }

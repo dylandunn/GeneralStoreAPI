@@ -9,12 +9,23 @@ namespace GeneralStoreAPI.Models.ProductModels
     public class Product
     {
         [Key]
+        [Required]
         public string Sku { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public double Cost { get; set; }
         [Required]
-        public bool IsInStock { get; }
+        public int NumberInInventory { get; set; }
+        [Required]
+        public bool IsInStock
+        {
+            get
+            {
+                if (NumberInInventory > 0) { return true; }
+                return false;
+            }
+           
+        }
     }
 }

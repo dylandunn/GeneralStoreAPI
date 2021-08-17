@@ -1,4 +1,5 @@
-﻿using GeneralStoreAPI.Models.CustomerModels;
+﻿using GeneralStoreAPI.Models;
+using GeneralStoreAPI.Models.CustomerModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,22 +13,24 @@ namespace GeneralStoreAPI.Controllers
 {
     public class CustomerController : ApiController
     {
-        private readonly CustomerDbContext _context = new CustomerDbContext();
+        private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
         // POST (Create)
         //api/Customer
         [HttpPost]
-        public async Task<IHttpActionResult> Post([FromBody] Customer model)
+        public async Task<IHttpActionResult> Post([FromBody] Customer customer)
         {
-            if (model is null)
+            if (customer is null)
             {
                 return BadRequest("Request Body cannot be empty");
             }
             if (ModelState.IsValid)
             {
-                _context.Customers.Add(model);
-                await _context.SaveChangesAsync();
-                return Ok("Customer Created");
+                _context.Customers.Add(customer);
+                if(await _context.SaveChangesAsync()== 1)
+                {
+                    return Ok("Customer Created");
+                }
             }
             return BadRequest(ModelState);
         }
